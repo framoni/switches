@@ -43,7 +43,7 @@ def get_combinations(values, board, groups):
         return True
     if next_group == -2:
         return False
-    print(next_group)
+    # print(next_group)
     # compute sum of known variables in group
     sum = 0
     remaining = copy.copy(groups[next_group])
