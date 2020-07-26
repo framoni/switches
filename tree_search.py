@@ -65,13 +65,16 @@ def get_combinations(values, board, groups):
         v_it = [0] * len(remaining)
         for j in range(i):
             v_it[j] = 1
-        for k in itertools.permutations(v_it):
+        for k in set(itertools.permutations(v_it)):
             for idx, m in enumerate(k):
                 values[remaining[idx] - 1] = m
             # recursion here
             status = get_combinations(values, board, groups)
             if status:
                 return True
+            else:
+                for idx, m in enumerate(k):
+                    values[remaining[idx] - 1] = -1
 
 
 def validate(groups, values, board):
@@ -85,10 +88,11 @@ def validate(groups, values, board):
 
 
 if __name__ == "__main__":
-    size = 3
+    size = 2
+    # board = [1, 0, 0, 0, 0, 1, 1, 0, 1]
+    board = [1, 1, 1, 0]
     values = [-1] * size ** 2
     groups = get_groups(size)
     print(groups)
-    board = [1, 0, 0, 0, 0, 1, 1, 0, 1]
     get_combinations(values, board, groups)
     print(values)
