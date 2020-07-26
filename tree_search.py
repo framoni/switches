@@ -80,9 +80,9 @@ def get_combinations(values, board, groups):
 def validate(groups, values, board):
     for g in groups:
         group_values = [values[i - 1] for i in groups[g]]
-        if board[g-1] == 0 and sum(group_values) % 2 == 0:
+        if board[g - 1] == 0 and sum(group_values) % 2 == 0:
             return -2  # error
-        if board[g-1] == 1 and sum(group_values) % 2 == 1:
+        if board[g - 1] == 1 and sum(group_values) % 2 == 1:
             return -2  # error
     return -1
 
