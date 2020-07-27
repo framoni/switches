@@ -8,14 +8,17 @@ In the basic variant of the game, changing the state of a switch changes the sta
 
 Given an inital state (that can be randomed or set up manually), the solver finds the switches whose state needs to be changed in order to obtain a full-on board.
 
-In other words, for each switch **s<sub>1</sub>, ... s<sub>nxn</sub>** a binary variable **v<sub>i</sub>** is assigned to indicate if the switch state should be changed.
+In other words, for each switch **s<sub>1</sub>, ..., s<sub>nxn</sub>** a binary variable **v<sub>i</sub>** is assigned to indicate if the switch state should be changed.
 
 The problem of beating the game can be formulated as the solution to this set of equations:
 
+***For each switch s<sub>i</sub>:***
 
-**cos( π *  ∑ v<sub>{i}</sub> ) = 1 if s<sub>o,i</sub> = |**
+***cos( π *  ∑ v<sub>{i}</sub> ) = 1 if s<sub>o,i</sub> = |***
 
-**cos( π * ∑ v<sub>{i}</sub> ) = -1 if s<sub>o,i</sub> = O**
+***cos( π * ∑ v<sub>{i}</sub> ) = -1 if s<sub>o,i</sub> = O***
+
+
 
 where **v<sub>{i}</sub>** is the set of state variables relative to the switches in the same row and column as **s<sub>i</sub>**.
 
